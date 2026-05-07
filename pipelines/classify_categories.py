@@ -98,6 +98,55 @@ TAXONOMY: dict[str, list[dict[str, str]]] = {
         {"raw_category": "Printing Imaging and Photo Services"},
         {"raw_category": "Blueprint Printing *Historic*"},
     ],
+    "general_contractor": [
+        # The broad contractor universe: anything from a one-person renovation outfit to
+        # a mid-sized construction firm. The contractors and construction_companies signals
+        # partition this canonical by name (the construction_companies signal takes the
+        # 'construction'-in-name subset; contractors takes the rest).
+        {"raw_category": "Contractor *Historic*"},
+        {"raw_category": "Contractor - Special Trades *Historic*"},
+        {"raw_category": "General Contractor"},
+        {"raw_category": "Trade Contractor"},
+    ],
+    "architect_or_designer": [
+        # Architects and designers (interior, graphic, design firms) and engineers.
+        # New-vocab "Architectural and Engineering Services" is the obvious bucket, but the
+        # bulk of historical architects/designers/engineers register under Office *Historic*
+        # with a subcategory; we map those subcategories specifically. Design Services is
+        # broad (graphic / web / fashion) and is included with caveat: the architects_
+        # designers signal accepts the noise.
+        {"raw_category": "Architectural and Engineering Services"},
+        {"raw_category": "Design Services"},
+        {"raw_category": "Office *Historic*", "raw_subcategory": "Architect"},
+        {"raw_category": "Office *Historic*", "raw_subcategory": "Engineer"},
+        {"raw_category": "Office *Historic*", "raw_subcategory": "Interior Design/Decorator"},
+        {"raw_category": "Office *Historic*", "raw_subcategory": "Design Company"},
+    ],
+    "real_estate": [
+        # Real estate brokerages, agencies, dealers. Excludes "Brokerage Services" (new
+        # vocab, generic — could be insurance/freight brokerage too).
+        {"raw_category": "Real Estate Dealer *Historic*"},
+        {"raw_category": "Real Estate Services"},
+        {"raw_category": "Office *Historic*", "raw_subcategory": "Real Estate Development/Investment"},
+    ],
+    "landscaping": [
+        # Old-vocab landscape-gardener category is the spine. Post-May-2024 has no
+        # equivalent category; landscapers register under General Contractor. The
+        # landscaping signal applies a name filter to recover those (see signal docstring).
+        {"raw_category": "Landscape Gardener *Historic*"},
+    ],
+    "skilled_trade_specialist": [
+        # Per-trade old-vocab categories (clean). Post-May-2024 these collapse into
+        # Trade Contractor / General Contractor; the skilled_trades signal applies a
+        # name filter to recover plumber/electrician/HVAC businesses from those new-vocab
+        # catch-all categories.
+        {"raw_category": "Plumber *Historic*"},
+        {"raw_category": "Plumber & Gas Contractor *Historic*"},
+        {"raw_category": "Plumber Sprinkler & Gas Contractor *Historic*"},
+        {"raw_category": "Plumber & Sprinkler Contractor *Historic*"},
+        {"raw_category": "Electrical Contractor *Historic*"},
+        {"raw_category": "Gas Contractor *Historic*"},
+    ],
     # TODO: extend taxonomy as new signals are defined.
     # Candidates already visible in the data: Beauty Services, Caterer, Health Enhancement
     # Services, Therapeutic Touch Technique *Historic*, Massage Therapist *Historic*, etc.

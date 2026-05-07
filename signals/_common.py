@@ -66,6 +66,7 @@ def aggregate_signal(
             CAST(
                 CASE
                     WHEN closure_candidate IS NOT NULL
+                      AND closure_candidate >= establishment_date
                       AND (latest_issued IS NULL OR closure_candidate > latest_issued)
                     THEN closure_candidate
                     ELSE NULL
