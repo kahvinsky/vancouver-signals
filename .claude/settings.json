@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(rm -rf:*)",
+      "Bash(sudo:*)",
+      "Read(/Users/kevin/.ssh/**)",
+      "Read(/Users/kevin/.aws/**)",
+      "Read(/Users/kevin/.config/gh/**)",
+      "Read(/Users/kevin/.env*)",
+      "Read(/Users/kevin/code/vancouver-signals/.env*)"
+    ]
+  }
+}
+

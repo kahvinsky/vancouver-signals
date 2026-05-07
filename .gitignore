@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# uv / venv
+.venv/
+.python-version
+
+# Jupyter
+.ipynb_checkpoints/
+
+# DuckDB
+vancouver_signals.duckdb
+*.duckdb.wal
+*.duckdb.tmp
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Data: ignore contents, keep structure markers and README
+data/raw/*
+data/interim/*
+data/processed/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!data/README.md
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
+*.swp
