@@ -1,4 +1,4 @@
-"""Construction companies: anchor signal for larger-scale construction firms.
+"""Construction companies: a coincident signal for larger-scale construction firms.
 
 Definition:
     canonical_category = 'general_contractor'
@@ -24,10 +24,11 @@ Address-of-work caveat (CRITICAL):
     Spatial analysis is structurally limited.
 
 Note on signal_class:
-    Classified as 'anchor' per project specification. Note that construction_companies
-    here is denser than the other anchor signal (Whole Foods has 3 rows; this signal has
-    ~3,000). The "anchor" framing reflects the user's intent (rare-but-meaningful
-    arrivals/departures of larger firms) rather than an absolute volume threshold.
+    Originally classified as 'anchor' under the assumption that larger construction firms
+    would be a small, high-information set. The actual count is ~4,400 unique businesses
+    over 25 years — denser than the anchor framing supports. Reclassified to 'coincident'
+    in the post-batch revision: construction-company density tracks ongoing built-environment
+    activity in the city rather than rare, attention-worthy openings.
 """
 
 from __future__ import annotations
@@ -38,7 +39,7 @@ import polars as pl
 from signals._common import aggregate_signal
 
 SIGNAL_NAME = "construction_companies"
-SIGNAL_CLASS = "anchor"
+SIGNAL_CLASS = "coincident"
 
 
 def get_signal(con: duckdb.DuckDBPyConnection) -> pl.DataFrame:

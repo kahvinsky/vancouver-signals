@@ -12,19 +12,31 @@ import matplotlib.pyplot as plt
 # Single source of truth for per-signal colors. Picked so each signal class has a
 # distinguishable hue and so leading vs counter signals read as warm vs cool at a glance.
 SIGNAL_COLORS: dict[str, str] = {
+    # Consumer amenity (Weekend 2 batch 1) — warm hues, leading skews red/brown/pink
     "yoga_studios": "#d62728",
     "specialty_coffee": "#8c564b",
     "wine_bars": "#9467bd",
     "pilates_studios": "#e377c2",
+    # Counter — cool blue/cyan
     "auto_repair": "#1f77b4",
     "print_shops": "#17becf",
+    # Anchor — green
     "whole_foods_openings": "#2ca02c",
+    # Production side (Weekend 2 batch 2) — orange / gold family for leading,
+    # olive / dark for coincident
+    "contractors": "#ff7f0e",
+    "design_economy": "#bcbd22",
+    "real_estate_brokerages": "#ffbb78",
+    "construction_companies": "#7f7f7f",
+    "landscaping": "#98df8a",
+    "skilled_trades": "#aec7e8",
 }
 
 CLASS_COLORS: dict[str, str] = {
     "leading": "#d62728",
     "counter": "#1f77b4",
     "anchor": "#2ca02c",
+    "coincident": "#ff7f0e",
 }
 
 DEFAULT_FIGSIZE = (10, 4)
