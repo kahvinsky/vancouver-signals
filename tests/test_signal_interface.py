@@ -16,6 +16,10 @@ import pytest
 
 from signals.anchor.whole_foods_openings import get_signal as get_whole_foods
 from signals.counter.auto_repair import get_signal as get_auto_repair
+from signals.counter.print_shops import get_signal as get_print_shops
+from signals.leading.pilates_studios import get_signal as get_pilates
+from signals.leading.specialty_coffee import get_signal as get_specialty_coffee
+from signals.leading.wine_bars import get_signal as get_wine_bars
 from signals.leading.yoga_studios import get_signal as get_yoga
 
 DUCKDB_PATH = Path("vancouver_signals.duckdb")
@@ -48,7 +52,11 @@ VALID_SIGNAL_CLASSES = {"leading", "counter", "anchor"}
 
 SIGNALS = [
     pytest.param(get_yoga, "yoga_studios", "leading", id="yoga_studios"),
+    pytest.param(get_specialty_coffee, "specialty_coffee", "leading", id="specialty_coffee"),
+    pytest.param(get_wine_bars, "wine_bars", "leading", id="wine_bars"),
+    pytest.param(get_pilates, "pilates_studios", "leading", id="pilates_studios"),
     pytest.param(get_auto_repair, "auto_repair", "counter", id="auto_repair"),
+    pytest.param(get_print_shops, "print_shops", "counter", id="print_shops"),
     pytest.param(get_whole_foods, "whole_foods_openings", "anchor", id="whole_foods_openings"),
 ]
 

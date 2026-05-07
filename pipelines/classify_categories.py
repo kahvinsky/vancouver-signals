@@ -57,10 +57,50 @@ TAXONOMY: dict[str, list[dict[str, str]]] = {
         {"raw_category": "Retail Dealer - Food"},
         {"raw_category": "Retail Dealer - Food *Historic*"},
     ],
+    "cafe": [
+        # Old vocab "Ltd Service Food Establishment" and new vocab "Limited Service Food
+        # Establishment" are the closest the city has to a "cafe" classification, but both
+        # are far broader: they include donut shops, ice cream parlours, bubble tea, sandwich
+        # counters, and quick-serve places of all kinds. The specialty_coffee signal narrows
+        # to actual coffee places via a name filter on top of this canonical.
+        {"raw_category": "Ltd Service Food Establishment *Historic*"},
+        {"raw_category": "Limited Service Food Establishment"},
+    ],
+    "liquor_establishment": [
+        # Wine bars, cocktail bars, and other bars-with-food usually register under one of
+        # these. The wine_bars signal applies a name filter on top. Note that Specialty Wine
+        # Store *Historic* is retail, not a bar, and is intentionally excluded; U-Brew/U-Vin
+        # is also excluded as a different business model.
+        {"raw_category": "Liquor Establishment Standard *Historic*"},
+        {"raw_category": "Liquor Establishment Extended  *Historic*"},
+        {"raw_category": "Lounge 'A' *Historic*"},
+        {"raw_category": "Public House *Historic*"},
+        {"raw_category": "Hotel Lounge *Historic*"},
+        {"raw_category": "Neighbourhood Pub *Historic*"},
+        {"raw_category": "Cabaret *Historic*"},
+        {"raw_category": "Club Lounge *Historic*"},
+        {"raw_category": "Liquor Establishment"},
+    ],
+    "full_service_restaurant": [
+        # Some wine bars (and other things) register as Class 1 restaurants. Including for
+        # the wine_bars signal to catch. The signal's name filter does the disambiguation.
+        {"raw_category": "Restaurant Class 1 *Historic*"},
+        {"raw_category": "Restaurant"},
+        {"raw_category": "Dining Lounge *Historic*"},
+        {"raw_category": "Dining Lounge/Room *Historic*"},
+    ],
+    "print_shop": [
+        # Sign Permit *Historic* is a different thing entirely (building-sign permit
+        # registrations, not sign-making businesses). T-shirt and screen printing live
+        # under garment manufacturing categories; that's a different industry with
+        # different gentrification dynamics, intentionally not folded in here.
+        {"raw_category": "Printing Services *Historic*"},
+        {"raw_category": "Printing Imaging and Photo Services"},
+        {"raw_category": "Blueprint Printing *Historic*"},
+    ],
     # TODO: extend taxonomy as new signals are defined.
-    # Candidates already visible in the data: Restaurant, Beauty Services, Limited Service Food
-    # Establishment, Caterer, Print Shops, Health Enhancement Services, Therapeutic Touch
-    # Technique *Historic*, Massage Therapist *Historic*, etc.
+    # Candidates already visible in the data: Beauty Services, Caterer, Health Enhancement
+    # Services, Therapeutic Touch Technique *Historic*, Massage Therapist *Historic*, etc.
 }
 
 
